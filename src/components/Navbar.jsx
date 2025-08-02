@@ -35,12 +35,7 @@ const Navbar = () => {
           <a href="/contact" className="nav-link" onClick={closeMobileMenu}>Contact</a>
         </div>
         
-        <div className="nav-cta">
-          <a href="tel:+918438623133" className="phone-button">
-            <i className="fas fa-phone-alt"></i> 
-            <span className="phone-text">+91 84386 23133</span>
-          </a>
-        </div>
+        
         
         <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
           <div className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
