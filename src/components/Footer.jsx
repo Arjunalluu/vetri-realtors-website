@@ -8,19 +8,20 @@ const Footer = () => {
         <div className="footer-brand">
           <div className="logo">VETRI<span>REALTORS</span></div>
           <p>Premium Real Estate Solutions in ECR & OMR</p>
+          <div className="social-icons">
+            <a href="#"><i className="fab fa-facebook-f"></i></a>
+            <a href="#"><i className="fab fa-instagram"></i></a>
+            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+            <a href="#"><i className="fab fa-twitter"></i></a>
+          </div>
         </div>
         
-            <div className="footer-contact">
-            <h3>Contact Info</h3>
-            <p><i className="fas fa-map-marker-alt"></i> No.2. Thirum, ECR, Kovalam</p>
-            <p><i className="fas fa-phone-alt"></i> +91 84386 23133</p>
-            <p>
-                <i className="fas fa-envelope"></i> 
-                <a href="mailto:vetrirealtorspvtltd@gmail.com" className="email-link">
-                vetrirealtorspvtltd@gmail.com
-                </a>
-            </p>
-            </div>
+        <div className="footer-contact">
+          <h3>Contact Info</h3>
+          <p><i className="fas fa-map-marker-alt"></i> No.2. Thirum, ECR, Kovalam</p>
+          <p><i className="fas fa-phone-alt"></i> +91 84386 23133</p>
+          <p><i className="fas fa-envelope"></i> vetrirealtorspvtltd@gmail.com</p>
+        </div>
         
         <div className="footer-services">
           <h3>Our Services</h3>

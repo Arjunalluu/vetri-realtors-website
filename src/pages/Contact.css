@@ -3,24 +3,6 @@
     min-height: 100vh;
   }
   
-  .contact-card {
-    padding: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .contact-page h1 {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .contact-page h1 span {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -39,10 +21,11 @@
     align-items: flex-start;
   }
   
-  .contact-item i {
+  .gold-icon {
     font-size: 1.5rem;
-    color: #6a11cb;
+    color: var(--gold-primary);
     margin-top: 5px;
+    min-width: 30px;
   }
   
   .contact-item h3 {
@@ -50,13 +33,20 @@
     margin-bottom: 0.5rem;
   }
   
-  .contact-item p, .contact-item a {
-    color: rgba(255, 255, 255, 0.85);
+  .contact-item p, .email-link, .phone-link {
+    color: var(--text-light);
     line-height: 1.6;
   }
   
-  .contact-item a:hover {
-    color: #6a11cb;
+  .email-link, .phone-link {
+    color: var(--gold-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .email-link:hover, .phone-link:hover {
+    color: var(--gold-primary);
+    text-decoration: underline;
   }
   
   .contact-hours {
@@ -66,32 +56,58 @@
   }
   
   .contact-form {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 20px;
+    padding: 2.5rem;
+    border-radius: 16px;
   }
   
   .form-group {
     margin-bottom: 1.5rem;
   }
   
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
+  .glass-input {
     width: 100%;
     padding: 14px;
-    border-radius: 12px;
-    background: rgba(10, 10, 30, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.1);
     color: white;
     font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
   }
   
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
+  .glass-input:focus {
     outline: none;
-    border-color: #6a11cb;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+  }
+  
+  select.glass-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4AF37'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+  }
+  
+  textarea.glass-input {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .form-success {
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .success-icon {
+    font-size: 2rem;
+    color: var(--gold-primary);
   }
   
   /* Responsive */
@@ -104,35 +120,9 @@
       padding-right: 0;
     }
   }
-
-  /* Add to existing Contact.css */
-.form-success {
-    background: rgba(40, 167, 69, 0.15);
-    border: 1px solid rgba(40, 167, 69, 0.3);
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
   
-  .form-success i {
-    color: #28a745;
-    font-size: 1.5rem;
-  }
-  
-  .email-link, .phone-link {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .email-link:hover, .phone-link:hover {
-    color: #6a11cb;
-    text-decoration: underline;
-  }
-  
-  .cta-button i {
-    margin-right: 8px;
+  @media (max-width: 768px) {
+    .contact-form {
+      padding: 1.8rem;
+    }
   }

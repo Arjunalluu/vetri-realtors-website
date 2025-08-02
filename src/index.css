@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
-@import '@fortawesome/fontawesome-free/css/all.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  --gold-primary: #D4AF37;
+  --gold-secondary: #FFD700;
+  --gold-light: #F5E7A1;
+  --black-primary: #0A0A0A;
+  --black-secondary: #1A1A1A;
+  --glass-bg: rgba(26, 26, 26, 0.5);
+  --text-light: #F0F0F0;
+  --text-gold: #D4AF37;
+}
 
 * {
   margin: 0;
@@ -9,180 +18,140 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #fff;
+  background-color: var(--black-primary);
+  color: var(--text-light);
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.5px;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 
-.placeholder-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  margin: 2rem;
-}
-
-.placeholder-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+/* Gold gradient text effect */
+.gold-gradient {
+  background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.placeholder-section p {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .hero {
-    flex-direction: column;
-    gap: 4rem;
-    padding: 4rem 5%;
-  }
-  
-  .hero-content h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1.2rem 5%;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.8rem;
-  }
-  
-  .visual-box {
-    width: 350px;
-    height: 350px;
-  }
-}/* Background styles */
-/* Background styles */
-body {
-  transition: background-image 1.5s ease-in-out;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}
-
-.home-bg {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b1.png);
-}
-
-.about-bg {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b2.png);
-}
-
-.listings-bg {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b3.png);
-}
-
-.contact-bg {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b1.png);
-}
-/* Add smooth transitions to all elements */
-* {
-  transition: 
-    background-color 0.3s ease,
-    transform 0.3s ease,
-    opacity 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-/* Improve button feedback */
-button:active {
-  transform: scale(0.98);
-}
-
-/* Add subtle animation to glass containers */
+/* Glass effect container */
 .glass-container {
-  animation: fadeInUp 0.8s ease-out;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Performance optimization for background transitions */
-body::before {
+.glass-container::before {
   content: '';
-  position: fixed;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Button styles */
+.cta-button {
+  background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
+  color: var(--black-primary);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
   z-index: -1;
-  transition: opacity 1.5s ease-in-out;
-  background-size: cover;
-  background-position: center;
 }
 
-.home-bg::before {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b1.png);
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
 }
 
-.about-bg::before {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b2.png);
-  opacity: 0;
-}
-
-.listings-bg::before {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b3.png);
-  opacity: 0;
-}
-
-.contact-bg::before {
-  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
-                    url(./assets/images/b1.png);
-  opacity: 0;
-}
-
-/* When body class changes, fade in the new background */
-body.about-bg::before,
-body.listings-bg::before,
-body.contact-bg::before {
+.cta-button:hover::before {
   opacity: 1;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 2px solid var(--gold-primary);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Page transition animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-container {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .glass-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-container {
+    padding: 1.5rem;
+  }
 }

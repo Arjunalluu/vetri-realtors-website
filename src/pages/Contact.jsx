@@ -22,7 +22,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Create email content
     const emailBody = `
 Name: ${formData.name}
 Email: ${formData.email}
@@ -33,31 +32,26 @@ Message:
 ${formData.message}
     `;
     
-    // Create mailto link
     const mailtoLink = `mailto:vetrirealtorspvtltd@gmail.com?subject=New%20Contact%20Request&body=${encodeURIComponent(emailBody)}`;
     
-    // Open email client
     window.location.href = mailtoLink;
     
-    // Simulate submission delay for better UX
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-      
-      // Hide success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
     }, 1000);
   };
 
   return (
-    <div className="contact-page">
-      <div className="glass-container contact-card">
-        <h1>Contact <span>Vetri Realtors</span></h1>
+    <div className="contact-page page-container">
+      <div className="glass-container">
+        <h1 className="gold-gradient">Contact <span>Vetri Realtors</span></h1>
         
         {submitted && (
-          <div className="form-success">
-            <i className="fas fa-check-circle"></i>
+          <div className="form-success glass-card">
+            <i className="fas fa-check-circle success-icon"></i>
             <p>Thank you! Your message has been sent successfully.</p>
           </div>
         )}
@@ -67,7 +61,7 @@ ${formData.message}
             <h2>Get In Touch</h2>
             
             <div className="contact-item">
-              <i className="fas fa-map-marker-alt"></i>
+              <i className="fas fa-map-marker-alt gold-icon"></i>
               <div>
                 <h3>Office Address</h3>
                 <p>No.2. Thirum, East Coast Road, Kovalam<br />
@@ -76,7 +70,7 @@ ${formData.message}
             </div>
             
             <div className="contact-item">
-              <i className="fas fa-envelope"></i>
+              <i className="fas fa-envelope gold-icon"></i>
               <div>
                 <h3>Email Us</h3>
                 <p>
@@ -88,7 +82,7 @@ ${formData.message}
             </div>
             
             <div className="contact-item">
-              <i className="fas fa-phone-alt"></i>
+              <i className="fas fa-phone-alt gold-icon"></i>
               <div>
                 <h3>Call Us</h3>
                 <p>
@@ -104,7 +98,7 @@ ${formData.message}
             </div>
           </div>
           
-          <div className="contact-form">
+          <div className="contact-form glass-card">
             <h2>Send a Message</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
@@ -115,6 +109,7 @@ ${formData.message}
                   required
                   value={formData.name}
                   onChange={handleInputChange}
+                  className="glass-input"
                 />
               </div>
               <div className="form-group">
@@ -125,6 +120,7 @@ ${formData.message}
                   required
                   value={formData.email}
                   onChange={handleInputChange}
+                  className="glass-input"
                 />
               </div>
               <div className="form-group">
@@ -134,6 +130,7 @@ ${formData.message}
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  className="glass-input"
                 />
               </div>
               <div className="form-group">
@@ -141,6 +138,7 @@ ${formData.message}
                   name="service"
                   value={formData.service}
                   onChange={handleInputChange}
+                  className="glass-input"
                 >
                   <option value="">Service Interested In</option>
                   <option value="farm-land">Farm Land Purchase/Sale</option>
@@ -158,6 +156,7 @@ ${formData.message}
                   required
                   value={formData.message}
                   onChange={handleInputChange}
+                  className="glass-input"
                 ></textarea>
               </div>
               <button 

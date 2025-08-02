@@ -9,16 +9,11 @@
     margin: 0 auto;
   }
   
-  .about-page h1 {
-    font-size: 3.5rem;
+  .about-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
     margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .about-page h1 span {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-light);
   }
   
   .about-content {
@@ -37,35 +32,67 @@
   }
   
   .services-list li {
-    padding: 12px 0;
+    padding: 15px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     font-size: 1.1rem;
+    color: var(--text-light);
   }
   
-  .services-list i {
-    color: #6a11cb;
+  .gold-icon {
+    color: var(--gold-primary);
+    font-size: 1.2rem;
   }
   
   .leadership {
     flex: 1;
+    display: flex;
+    justify-content: center;
   }
   
   .director-card {
     padding: 2rem;
     text-align: center;
-    border-radius: 20px;
+    max-width: 300px;
   }
   
   .director-image {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
     margin: 0 auto 1.5rem;
-    border: 3px solid rgba(106, 17, 203, 0.3);
+    position: relative;
+  }
+  
+  .director-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .gold-frame {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid var(--gold-primary);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .director-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .director-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
   }
   
   .director-contact {
@@ -75,20 +102,21 @@
     margin-top: 1.5rem;
   }
   
-  .director-contact a {
-    padding: 8px 16px;
+  .contact-link {
+    padding: 10px 20px;
     border-radius: 8px;
-    background: rgba(106, 17, 203, 0.2);
-    color: white;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold-primary);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
   }
   
-  .director-contact a:hover {
-    background: rgba(106, 17, 203, 0.4);
+  .contact-link:hover {
+    background: rgba(212, 175, 55, 0.2);
     transform: translateY(-3px);
   }
   
@@ -98,8 +126,33 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .legal-details p {
-    margin: 8px 0;
+  .legal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .legal-item {
+    background: rgba(20, 20, 20, 0.4);
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  .legal-item.full-width {
+    grid-column: 1 / -1;
+  }
+  
+  .legal-label {
+    font-weight: 600;
+    color: var(--gold-primary);
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .legal-value {
+    color: var(--text-light);
     font-size: 1.1rem;
   }
   
@@ -108,53 +161,23 @@
     .about-content {
       flex-direction: column;
     }
-  }
-  /* Add these styles to your existing About.css */
-.director-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    border: 3px solid rgba(106, 17, 203, 0.3);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .director-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Responsive adjustments for image */
-  @media (max-width: 768px) {
-    .director-image {
-      width: 150px;
-      height: 150px;
+    
+    .leadership {
+      margin-top: 2rem;
+    }
+    
+    .director-card {
+      max-width: 100%;
     }
   }
-  /* Add to About.css */
-.director-image {
-    transition: all 0.4s ease;
-  }
   
-  .director-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(101, 45, 232, 0.4);
-  }
-  .director-image {
-    position: relative;
-    border: 3px solid transparent;
-    background-clip: padding-box;
-  }
-  
-  .director-image::after {
-    content: '';
-    position: absolute;
-    top: -3px; left: -3px; right: -3px; bottom: -3px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    border-radius: 50%;
-    z-index: -1;
+  @media (max-width: 768px) {
+    .about-card {
+      padding: 2rem;
+    }
+    
+    .director-image {
+      width: 180px;
+      height: 180px;
+    }
   }
