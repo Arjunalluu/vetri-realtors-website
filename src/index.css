@@ -1,13 +1,188 @@
-body {
+
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.placeholder-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  margin: 2rem;
+}
+
+.placeholder-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.placeholder-section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    gap: 4rem;
+    padding: 4rem 5%;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1.2rem 5%;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .visual-box {
+    width: 350px;
+    height: 350px;
+  }
+}/* Background styles */
+/* Background styles */
+body {
+  transition: background-image 1.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.home-bg {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b1.png);
+}
+
+.about-bg {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b2.png);
+}
+
+.listings-bg {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b3.png);
+}
+
+.contact-bg {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b1.png);
+}
+/* Add smooth transitions to all elements */
+* {
+  transition: 
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Improve button feedback */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Add subtle animation to glass containers */
+.glass-container {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Performance optimization for background transitions */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: opacity 1.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-bg::before {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b1.png);
+}
+
+.about-bg::before {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b2.png);
+  opacity: 0;
+}
+
+.listings-bg::before {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b3.png);
+  opacity: 0;
+}
+
+.contact-bg::before {
+  background-image: linear-gradient(rgba(15, 15, 35, 0.85), rgba(48, 43, 99, 0.85)), 
+                    url(./assets/images/b1.png);
+  opacity: 0;
+}
+
+/* When body class changes, fade in the new background */
+body.about-bg::before,
+body.listings-bg::before,
+body.contact-bg::before {
+  opacity: 1;
 }
