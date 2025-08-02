@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import DirectorImage from '../assets/images/h.png';
+import DirectorImage from '../assets/images/h.jpg';
 
 const About = () => {
   return (
