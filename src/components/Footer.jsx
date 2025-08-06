@@ -18,7 +18,7 @@ const Footer = () => {
         
         <div className="footer-contact">
           <h3>Contact Info</h3>
-          <p><i className="fas fa-map-marker-alt"></i> No.2. Thirum, ECR, Kovalam</p>
+          <p><i className="fas fa-map-marker-alt"></i> No.2, Thriram, ECR, Kovalam</p>
           <p><i className="fas fa-phone-alt"></i> +91 84386 23133</p>
           <p><i className="fas fa-envelope"></i> vetrirealtorspvtltd@gmail.com</p>
         </div>
